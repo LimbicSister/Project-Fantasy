@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmnl551ojaboo"]
+
+[ext_resource type="Script" uid="uid://bdb0pn0lswntk" path="res://scripts/chest.gd" id="1_oii8l"]
+[ext_resource type="Texture2D" uid="uid://ctbsvdr35ajmc" path="res://Images/Interact.png" id="2_gqd3d"]
+[ext_resource type="PackedScene" uid="uid://b7a0stxl27uk" path="res://Models/chest.blend" id="2_sy5e1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqd3d"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yue2o"]
+radius = 1.8628105
+
+[node name="StaticBody3D" type="StaticBody3D"]
+script = ExtResource("1_oii8l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_gqd3d")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_yue2o")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.18, 0, 0, 0, 0.11722267, 1.0169747, 0, -0.14217214, 0.8385081, 0.001897037, 0.8048235, 0.12067485)
+visible = false
+texture = ExtResource("2_gqd3d")
+
+[node name="chest" parent="." instance=ExtResource("2_sy5e1")]
+transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, 0, -0.2396695, 0)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
