@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu5578wh3ymc6"]
+
+[ext_resource type="Script" uid="uid://dbcx6wi5xk13d" path="res://scripts/intro_text.gd" id="1_xdy68"]
+
+[node name="Intro Text" type="Node2D"]
+script = ExtResource("1_xdy68")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 148.0
+offset_top = 32.0
+offset_right = 1024.0
+offset_bottom = 607.0
+theme_override_font_sizes/font_size = 22
+text = "Giorvia was a regular community, people watched out for each other.
+
+300 years ago, an ancient entity awoke, and threatened to destroy the planet. 
+The Old Gods revealed themselves and stopped the entity by trapping it
+and themselves into crystals, holding it in a space between Dimensions.
+
+30 Years ago, four crystals were rediscovered and a new religion was formed,
+Crystalium.  They built shrines around the Crystals
+
+3 Years ago, An earthquake caused one of these shrines to disappear, a search was
+started but they could not find the shrine...
+
+3 Days ago, a new set of gods revealed themselves.  These gods revealed a secret
+the previous gods kept, everyone was born with an \"Innate Power\" and this
+was hidden from them, but THEY would reveal these powers.
+
+3 minutes ago, a man raided the small town of Lighteria..."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 925.0
+offset_top = 616.0
+offset_right = 1140.0
+offset_bottom = 639.0
+text = "Press Interact to Continue..."

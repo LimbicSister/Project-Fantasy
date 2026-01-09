@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://bei46x2o2fe2q"]
+
+[ext_resource type="Script" uid="uid://bdr6f8icfqjfe" path="res://scripts/player.gd" id="1_3vyb7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u8vuu"]
+viewport_path = NodePath("Sprite")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3vyb7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
+radius = 0.421875
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uxdbv"]
+radius = 1.8628105
+
+[node name="OW_Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_3vyb7")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.42916152, 0, 0, 0, 0.2511112, 0.1354175, 0, 0.077952884, -0.43622315, 0, 0, 0)
+texture = SubResource("ViewportTexture_u8vuu")
+
+[node name="Camera3D" type="Camera3D" parent="Sprite3D"]
+transform = Transform3D(2.330125, 0, 0, 0, 3.8032577, 0, 0, -5.9604645e-08, -2.1893396, 0, -1.9073486e-06, -19.927769)
+
+[node name="Sprite" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(200, 281)
+
+[node name="Mesh" type="MeshInstance2D" parent="Sprite"]
+position = Vector2(100.000015, 140.74602)
+scale = Vector2(198.00002, 140.25401)
+mesh = SubResource("CapsuleMesh_3vyb7")
+
+[node name="Sprite1" type="AnimatedSprite2D" parent="Sprite"]
+sprite_frames = SubResource("SpriteFrames_3vyb7")
+
+[node name="Sprite2" type="AnimatedSprite2D" parent="Sprite"]
+sprite_frames = SubResource("SpriteFrames_g2els")
+
+[node name="Sprite3" type="AnimatedSprite2D" parent="Sprite"]
+position = Vector2(100.000015, 140.74602)
+scale = Vector2(198.00002, 140.25401)
+sprite_frames = SubResource("SpriteFrames_g2els")
+
+[node name="Sprite4" type="AnimatedSprite2D" parent="Sprite"]
+sprite_frames = SubResource("SpriteFrames_g2els")
+
+[node name="Sprite5" type="AnimatedSprite2D" parent="Sprite"]
+sprite_frames = SubResource("SpriteFrames_g2els")
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_g2els")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_uxdbv")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

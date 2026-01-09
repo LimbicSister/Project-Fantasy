@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtdeyehfrkynf"]
+
+[ext_resource type="Script" uid="uid://dl872yemwkkav" path="res://scripts/cave1.gd" id="1_w2l0f"]
+[ext_resource type="PackedScene" uid="uid://i3eu3xc00k1u" path="res://Models/cave.blend" id="1_w6v1y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w2l0f"]
+size = Vector3(0.30197144, 3.2093506, 1.9950562)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rawnq"]
+size = Vector3(2.0084076, 0.9572754, 2.0173645)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ywssb"]
+size = Vector3(1.1002197, 3.4035645, 0.9114075)
+
+[node name="cave" type="Node3D"]
+script = ExtResource("1_w2l0f")
+
+[node name="cave" parent="." instance=ExtResource("1_w6v1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0022192001, 0, 0.004227519)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cave"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cave/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8546295, 1.1046753, 0.003326416)
+shape = SubResource("BoxShape3D_w2l0f")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="cave/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8668208, 1.1046753, 0.003326416)
+shape = SubResource("BoxShape3D_w2l0f")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="cave/StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.065843344, 1.1046753, -0.6497376)
+shape = SubResource("BoxShape3D_w2l0f")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="cave/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0074691772, -0.51672363, 0.0070648193)
+shape = SubResource("BoxShape3D_rawnq")
+
+[node name="Area3D" type="Area3D" parent="cave"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cave/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0060424805, 0.9197998, -0.044296265)
+shape = SubResource("BoxShape3D_ywssb")
+
+[connection signal="body_entered" from="cave/Area3D" to="." method="_on_area_3d_body_entered"]

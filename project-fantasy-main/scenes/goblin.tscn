@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bipj7psrg336u"]
+
+[ext_resource type="Script" uid="uid://cxmoj6ld48kqm" path="res://scripts/Goblin.gd" id="1_4yait"]
+[ext_resource type="Texture2D" uid="uid://ctbsvdr35ajmc" path="res://Images/Interact.png" id="2_q3g0h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_76chb"]
+
+[node name="Goblin" type="CharacterBody3D"]
+script = ExtResource("1_4yait")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_76chb")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.19599989, 0, 0, 0, 0.16820975, 0.7721439, 0, -0.15588942, 0.8331684, 0, 0, 0)
+texture = ExtResource("2_q3g0h")

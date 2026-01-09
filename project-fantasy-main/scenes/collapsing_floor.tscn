@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://drcse7enx0waj"]
+
+[ext_resource type="Script" uid="uid://dryuylreqwa3g" path="res://scripts/collapsing_floor.gd" id="1_07gk3"]
+[ext_resource type="PackedScene" uid="uid://cp4cb77o8nh7u" path="res://Models/base_area.blend" id="2_5sb7u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1qjar"]
+size = Vector3(1.9872742, 0.9055176, 7.8983154)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wk53n"]
+size = Vector3(1.6979828, 1, 7.5565834)
+
+[node name="Collapsing floor" type="Node3D"]
+script = ExtResource("1_07gk3")
+
+[node name="base_area" parent="." instance=ExtResource("2_5sb7u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06675732, -1.1920929e-07, -0.083813906)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="base_area"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="base_area/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009170532, -0.48547363, -2.9310913)
+shape = SubResource("BoxShape3D_1qjar")
+
+[node name="Area3D" type="Area3D" parent="base_area"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="base_area/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011817932, 0, -2.9322376)
+shape = SubResource("BoxShape3D_wk53n")
+
+[node name="base_area2" parent="base_area" instance=ExtResource("2_5sb7u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9785111)
+
+[node name="base_area3" parent="base_area" instance=ExtResource("2_5sb7u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.875285)
+
+[node name="base_area4" parent="base_area" instance=ExtResource("2_5sb7u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.9479415)
+
+[connection signal="body_entered" from="base_area/Area3D" to="." method="_on_area_3d_body_entered"]

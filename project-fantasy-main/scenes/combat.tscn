@@ -1,0 +1,318 @@
+[gd_scene load_steps=6 format=3 uid="uid://konhpk5qma3b"]
+
+[ext_resource type="Script" uid="uid://bqx0awecu4ko3" path="res://scripts/combat.gd" id="1_764e3"]
+[ext_resource type="PackedScene" uid="uid://bipj7psrg336u" path="res://scenes/goblin.tscn" id="2_qajva"]
+[ext_resource type="Texture2D" uid="uid://dx1b3xan22tjy" path="res://Images/placeholder arrow.png" id="3_aic3r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_764e3"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qajva"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_764e3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Combat Menu" type="Node2D" parent="."]
+position = Vector2(24, 493)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Combat Menu"]
+offset_left = -1.0
+offset_top = -4.0
+offset_right = 244.0
+offset_bottom = 167.0
+
+[node name="Attack" type="Button" parent="Combat Menu/VBoxContainer"]
+layout_mode = 2
+text = "Attack"
+
+[node name="Magic" type="Button" parent="Combat Menu/VBoxContainer"]
+layout_mode = 2
+text = "Magic"
+
+[node name="Job Abilities" type="Button" parent="Combat Menu/VBoxContainer"]
+layout_mode = 2
+text = "    Job Abilities    "
+
+[node name="Run" type="Button" parent="Combat Menu/VBoxContainer"]
+layout_mode = 2
+text = "Run"
+
+[node name="Got Away" type="Label" parent="Combat Menu"]
+visible = false
+offset_left = 941.0
+offset_top = -119.0
+offset_right = 1108.0
+offset_bottom = -78.0
+theme_override_font_sizes/font_size = 24
+text = "You Got Away!"
+
+[node name="HealthBars" type="Node2D" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBars"]
+offset_left = 904.0
+offset_top = 596.0
+offset_right = 1382.0
+offset_bottom = 630.0
+scale = Vector2(0.48000246, 1)
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="HealthBars"]
+offset_left = 904.0
+offset_top = 552.0
+offset_right = 1382.0
+offset_bottom = 586.0
+scale = Vector2(0.48000246, 1)
+show_percentage = false
+
+[node name="ProgressBar3" type="ProgressBar" parent="HealthBars"]
+offset_left = 904.0
+offset_top = 510.0
+offset_right = 1382.0
+offset_bottom = 544.0
+scale = Vector2(0.48000246, 1)
+show_percentage = false
+
+[node name="ProgressBar4" type="ProgressBar" parent="HealthBars"]
+offset_left = 904.0
+offset_top = 466.0
+offset_right = 1382.0
+offset_bottom = 500.0
+scale = Vector2(0.48000246, 1)
+show_percentage = false
+
+[node name="ProgressBar5" type="ProgressBar" parent="HealthBars"]
+offset_left = 904.0
+offset_top = 421.0
+offset_right = 1382.0
+offset_bottom = 455.0
+scale = Vector2(0.48000246, 1)
+show_percentage = false
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="Name1" type="Label" parent="Labels"]
+offset_left = 527.0
+offset_top = 418.0
+offset_right = 885.0
+offset_bottom = 460.0
+theme_override_font_sizes/font_size = 25
+text = "Paul"
+
+[node name="Name2" type="Label" parent="Labels"]
+offset_left = 527.0
+offset_top = 462.0
+offset_right = 885.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 25
+text = "Ryka"
+
+[node name="Name3" type="Label" parent="Labels"]
+offset_left = 527.0
+offset_top = 506.0
+offset_right = 885.0
+offset_bottom = 548.0
+theme_override_font_sizes/font_size = 25
+text = "Jehn"
+
+[node name="Name4" type="Label" parent="Labels"]
+offset_left = 527.0
+offset_top = 548.0
+offset_right = 885.0
+offset_bottom = 590.0
+theme_override_font_sizes/font_size = 25
+text = "Jyra"
+
+[node name="Name5" type="Label" parent="Labels"]
+offset_left = 527.0
+offset_top = 594.0
+offset_right = 885.0
+offset_bottom = 636.0
+theme_override_font_sizes/font_size = 25
+text = "Hendra"
+
+[node name="Enemies" type="Label" parent="Labels"]
+offset_left = 279.0
+offset_top = 422.0
+offset_right = 401.0
+offset_bottom = 687.0
+theme_override_font_sizes/font_size = 24
+text = "Enemies:"
+
+[node name="Health1" type="Label" parent="Labels"]
+offset_left = 669.0
+offset_top = 420.0
+offset_right = 859.0
+offset_bottom = 455.0
+theme_override_font_sizes/font_size = 25
+text = "Health: X  MP: X"
+
+[node name="Health2" type="Label" parent="Labels"]
+offset_left = 669.0
+offset_top = 465.0
+offset_right = 859.0
+offset_bottom = 500.0
+theme_override_font_sizes/font_size = 25
+text = "Health: X  MP: X"
+
+[node name="Health3" type="Label" parent="Labels"]
+offset_left = 669.0
+offset_top = 508.0
+offset_right = 859.0
+offset_bottom = 543.0
+theme_override_font_sizes/font_size = 25
+text = "Health: X  MP: X"
+
+[node name="Health4" type="Label" parent="Labels"]
+offset_left = 669.0
+offset_top = 552.0
+offset_right = 859.0
+offset_bottom = 587.0
+theme_override_font_sizes/font_size = 25
+text = "Health: X  MP: X"
+
+[node name="Health5" type="Label" parent="Labels"]
+offset_left = 669.0
+offset_top = 593.0
+offset_right = 859.0
+offset_bottom = 628.0
+theme_override_font_sizes/font_size = 25
+text = "Health: X  MP: X"
+
+[node name="Active player" type="Label" parent="Labels"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 27
+text = "X IS ACTIVE!"
+
+[node name="Characters" type="Node3D" parent="."]
+
+[node name="Character1" type="StaticBody3D" parent="Characters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4945698, 4.345318, -3.6599321)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Characters/Character1"]
+shape = SubResource("CapsuleShape3D_764e3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Characters/Character1"]
+mesh = SubResource("CapsuleMesh_qajva")
+
+[node name="Character2" type="StaticBody3D" parent="Characters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39891148, 3.4355311, -1.6102486)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Characters/Character2"]
+shape = SubResource("CapsuleShape3D_764e3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Characters/Character2"]
+mesh = SubResource("CapsuleMesh_qajva")
+
+[node name="Character3" type="StaticBody3D" parent="Characters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94067097, 1.4333196, 1.2160666)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Characters/Character3"]
+shape = SubResource("CapsuleShape3D_764e3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Characters/Character3"]
+mesh = SubResource("CapsuleMesh_qajva")
+
+[node name="Character4" type="StaticBody3D" parent="Characters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0410876, 1.0922923, 2.3415284)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Characters/Character4"]
+shape = SubResource("CapsuleShape3D_764e3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Characters/Character4"]
+mesh = SubResource("CapsuleMesh_qajva")
+
+[node name="Character5" type="StaticBody3D" parent="Characters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47908306, -0.4857955, 5.2101855)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Characters/Character5"]
+shape = SubResource("CapsuleShape3D_764e3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Characters/Character5"]
+mesh = SubResource("CapsuleMesh_qajva")
+
+[node name="Camera" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 0.80142087, 0.59810084, 0, -0.59810084, 0.80142087, -11.634563, 7.5449915, 13.9884205)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Enemy1" type="Node3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.383003, 4.110489, -3.5967813)
+
+[node name="Goblin" parent="Enemies/Enemy1" instance=ExtResource("2_qajva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63397026, -0.2797494)
+visible = false
+script = null
+
+[node name="Enemy2" type="Node3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.784546, 3.1090412, -2.451829)
+
+[node name="Goblin" parent="Enemies/Enemy2" instance=ExtResource("2_qajva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63397026, -0.2797494)
+visible = false
+script = null
+
+[node name="Enemy3" type="Node3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.213638, 1.5450735, 1.2995338)
+
+[node name="Goblin" parent="Enemies/Enemy3" instance=ExtResource("2_qajva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63397026, -0.2797494)
+visible = false
+script = null
+
+[node name="Enemy4" type="Node3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.567646, 0.82396793, 2.2848606)
+
+[node name="Goblin" parent="Enemies/Enemy4" instance=ExtResource("2_qajva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63397026, -0.2797494)
+visible = false
+script = null
+
+[node name="Enemy5" type="Node3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.059988, -0.4853499, 4.4757953)
+
+[node name="Goblin" parent="Enemies/Enemy5" instance=ExtResource("2_qajva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63397026, -0.2797494)
+visible = false
+script = null
+
+[node name="Arrows" type="Node2D" parent="."]
+
+[node name="PlaceholderArrow" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(285, 101)
+scale = Vector2(0.03690483, 0.036904834)
+texture = ExtResource("3_aic3r")
+
+[node name="PlaceholderArrow2" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(233.99997, 141)
+scale = Vector2(0.03690483, 0.036904834)
+texture = ExtResource("3_aic3r")
+
+[node name="PlaceholderArrow3" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(227.99998, 220)
+scale = Vector2(0.03690483, 0.036904834)
+texture = ExtResource("3_aic3r")
+
+[node name="PlaceholderArrow4" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(177.08337, 263.50003)
+scale = Vector2(0.03690483, 0.036904834)
+texture = ExtResource("3_aic3r")
+
+[node name="PlaceholderArrow5" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(190.99998, 326)
+scale = Vector2(0.03690483, 0.036904834)
+texture = ExtResource("3_aic3r")
+
+[connection signal="button_down" from="Combat Menu/VBoxContainer/Attack" to="." method="_on_attack_button_down"]
+[connection signal="button_down" from="Combat Menu/VBoxContainer/Run" to="." method="_on_run_button_down"]
